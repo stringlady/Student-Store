@@ -1,0 +1,22 @@
+.search {
+    padding-top: 30px;
+    display: flex;
+}
+
+.bar {
+    padding-bottom: 10px;
+    display: flex;
+}
+
+.bar::placeholder {
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#search-button img {
+    width: 20px;
+}
+
+#search-button {
+    background-color: cadetblue;
+}

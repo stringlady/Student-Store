@@ -11,7 +11,7 @@
 #intro {
   background-color: turquoise;
   width: 90%;
-  height: 90%;
+  height: 100%;
   color: white;
   justify-content: space-around;
   padding-left: 30px;
@@ -26,6 +26,10 @@ p {
   font-size: 20px;
 }
 
+.words {
+  padding-top: 55px;
+}
+
 .store img {
   padding-top: 20px;
   width: 500px;
@@ -33,5 +37,6 @@ p {
   padding-left: 50px;
   padding-right: 10px;
 }
+
 
 
