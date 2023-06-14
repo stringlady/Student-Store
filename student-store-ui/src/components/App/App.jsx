@@ -11,9 +11,12 @@ export default function App() {
       <BrowserRouter>
         <main>
           {/* YOUR CODE HERE! */}
-          <Navbar />
           <Sidebar />
-          <Home />
+          <div id="all">
+          <Navbar />
+          <Home/>
+          </div>
+          
         </main>
       </BrowserRouter>
     </div>

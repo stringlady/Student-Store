@@ -1,0 +1,7 @@
+.sidebar {
+    width: 4%;
+    border: solid 2px black;
+    height: 900px;
+    position: fixed;
+    background-color: cadetblue;
+}

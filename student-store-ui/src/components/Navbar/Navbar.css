@@ -1,0 +1,13 @@
+.navbar {
+    background-color: cadetblue;
+    height: 60px;
+    text-align: right;
+    padding-top: 20px;
+    width: 100%;
+    color: white;
+}
+
+
+#links {
+    padding-right: 100px;
+}

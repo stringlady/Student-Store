@@ -5,4 +5,33 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding-left: 100px;
 }
+
+#intro {
+  background-color: turquoise;
+  width: 90%;
+  height: 90%;
+  color: white;
+  justify-content: space-around;
+  padding-left: 30px;
+  display: flex;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+p {
+  font-size: 20px;
+}
+
+.store img {
+  padding-top: 20px;
+  width: 500px;
+  height: 400px;
+  padding-left: 50px;
+  padding-right: 10px;
+}
+
+
