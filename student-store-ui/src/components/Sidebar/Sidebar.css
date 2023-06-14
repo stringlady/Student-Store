@@ -1,6 +1,6 @@
 .sidebar {
     width: 4%;
-    border: solid 2px black;
+    border-right: solid 1.3px black;
     height: 900px;
     position: fixed;
     background-color: cadetblue;

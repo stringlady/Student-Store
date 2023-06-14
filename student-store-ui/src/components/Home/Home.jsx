@@ -17,6 +17,9 @@ export default function Home() {
 
       </div>
       <SearchBar id="search" />
+      <br/>
+      <br/>
+      <h4>Best Selling Products</h4>
     </div>
   )
 }
