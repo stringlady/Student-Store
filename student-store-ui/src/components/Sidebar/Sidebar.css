@@ -5,3 +5,7 @@
     position: fixed;
     background-color: cadetblue;
 }
+
+.sidebar img {
+    width: 60px;
+}

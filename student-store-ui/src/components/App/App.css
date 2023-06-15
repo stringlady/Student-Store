@@ -19,3 +19,59 @@
   margin-left: 4%;
 }
 
+#everything {
+  padding-left: 100px;
+  width: 1200px;
+}
+
+.aboutus {
+  width: 1200px;
+  border: solid 1px gainsboro;
+  display: flex;
+  flex-direction: row;
+}
+
+#info {
+  width: 650px;
+  padding-top: 30px;
+  padding-left: 60px;
+  color: cadetblue;
+  border-right: solid 1px gainsboro;
+  padding-right: 10px;
+}
+
+#logoo {
+  width: 550px;
+  background-color: cadetblue;
+  display: inline;
+}
+
+#logo2 {
+  width: 400px;
+  padding-top: 20px;
+  padding-left: 1px;
+}
+
+#contactUs {
+  width: 1200px;
+  border: solid 1px gainsboro;
+  display: flex;
+  flex-direction: row;
+  background-color: cadetblue;
+  color: white;
+}
+
+#subContact{
+  width: 100px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#subContact2{
+  width: 300px;
+  padding-left: 80px;
+  display: flex;
+  flex-direction: column;
+}
+

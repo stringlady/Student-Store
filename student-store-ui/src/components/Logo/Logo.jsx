@@ -3,6 +3,6 @@ import './Logo.css'
 
 export default function Logo() {
     return (
-        <img id="logo" src='logo.png'/>
+        <img id="logo" src='codepath.png'/>
     )
 }

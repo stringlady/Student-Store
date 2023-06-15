@@ -1,15 +1,12 @@
 .home {
-  width: 1200px;;
+  width: 1200px;
   max-width: 100vw;
-  height: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-left: 100px;
 }
 
 #intro {
-  background-color: turquoise;
+  background-color: cadetblue;
   width: 1200px;
   height: 100%;
   color: white;

@@ -1,0 +1,18 @@
+#footer {
+    background-color: aliceblue;
+    padding-left: 100px;
+    padding-top: 50px;
+    height: 100%;
+}
+
+#footer p {
+    font-size: medium;
+}
+
+.forWidth {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 1200px;
+    padding-bottom: 30px;
+}

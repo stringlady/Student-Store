@@ -10,11 +10,28 @@
     height: 200px;
 }
 
-#card {
+.card {
     border: solid 1px black;
     padding-bottom: 8px;
 }
 
-#card p {
+.card p {
     padding-left: 8px;
 }
+
+.hide {
+    display: none;
+}
+
+.catView {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  
+  .catView p {
+    color: black;
+    font-size: 15px;
+  }
+  

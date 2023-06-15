@@ -15,3 +15,8 @@
     color: white;
     text-decoration: none;
 }
+
+#logo {
+    float: left;
+    width: 50px;
+}

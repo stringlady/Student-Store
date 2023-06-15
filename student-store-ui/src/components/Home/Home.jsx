@@ -7,7 +7,6 @@ import { useState } from "react";
 import ProductView from "../ProductView/ProductView"
 
 export default function Home() {
-  const [cat, setCat] = useState("");
   return (
     <div className="home">
       <div id="intro">
@@ -21,31 +20,8 @@ export default function Home() {
         </div>
 
       </div>
-      <SearchBar id="search" />
-      <br/>
-      <br/>
-      <div className="catView">
-      <img src='hamburgbutton.png' id="ham"/>
-      {categories.map((c, idx) => {
-          return (
-          <CategoryView 
-          key={c+idx}
-          name={c.name}/>
-        )
-      })}
-      </div>
-      <br/>
-      <br/>
-      <h4>Best Selling Products</h4>
-      <ProductView />
+      
+      
     </div>
   )
 }
-
-// {categories.map((c, idx) => {
-//   return (
-//     <CategoryView 
-//     key={c+idx}
-//     name={c.name}/>
-//   )
-// })}
