@@ -16,7 +16,7 @@
       "image": "https://static.openfoodfacts.org/images/products/896/400/009/0879/front_en.14.full.jpg",
       "source": "https://world.openfoodfacts.org/cgi/product_image.pl?code=8964000090879&id=front_en",
       "description": "No one knows what's in the powder that covers these snacks, but wow is it amazing!",
-      "price": 1.5
+      "price": 1.50
     },
     {
       "id": 3,
@@ -43,7 +43,7 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Fruits.png/640px-Fruits.png",
       "source": "https://commons.wikimedia.org/wiki/File:Fruits.png",
       "description": "More fruit than you know what to do with!",
-      "price": 7.5
+      "price": 7.50
     },
     {
       "id": 6,

@@ -1,0 +1,20 @@
+#view {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+
+#img {
+    width: 260px;
+    height: 200px;
+}
+
+#card {
+    border: solid 1px black;
+    padding-bottom: 8px;
+}
+
+#card p {
+    padding-left: 8px;
+}

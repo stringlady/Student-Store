@@ -5,6 +5,7 @@ import Sidebar from "../Sidebar/Sidebar"
 import Home from "../Home/Home"
 import "./App.css"
 
+
 export default function App() {
   return (
     <div className="app">
@@ -15,6 +16,7 @@ export default function App() {
           <div id="all">
           <Navbar />
           <Home/>
+          
           </div>
           
         </main>
