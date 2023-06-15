@@ -6,7 +6,6 @@ import { useState } from "react";
 import SearchBar from '../SearchBar/SearchBar';
 
 export default function ProductView(props) {
-    
     return (
         <div>
         
@@ -65,13 +64,36 @@ export function ProductGrid() {
 }
 
 export function ProductCard(props) {
-   const cardClassName = props.isActive ? 'card' : 'hide'
+   const cardClassName = props.isActive ? 'card' : 'hide';
+   const [num, setNum] = useState(0);
+
+   const addNum = () => {
+    setNum(num + 1);
+   }
+
+   const subNum = () => {
+    if (num > 0) {
+        setNum(num - 1);
+    }
+   }
     return (
         <div>
         <div className={cardClassName}>
+            
             <img id="img" src={props.image}/>
-            <p><strong>{props.name}</strong></p>
-            <p>${props.price}</p> 
+            <div id="desc">
+            <div>
+                <p><strong>{props.name}</strong></p>
+                <p>${props.price}</p>
+            </div>
+            <div id="buttons2">
+                <button onClick={addNum}>+</button>
+                <button onClick={subNum}>-</button>
+            </div>
+            </div>
+            <div className='num'>
+                <p>{num}</p>
+            </div>
         </div>
         <br/>
         <br/>

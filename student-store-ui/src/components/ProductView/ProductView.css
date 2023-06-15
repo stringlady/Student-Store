@@ -19,6 +19,11 @@
     padding-left: 8px;
 }
 
+#desc {
+    display: flex;
+    justify-content: space-around;
+}
+
 .hide {
     display: none;
 }
@@ -34,4 +39,20 @@
     color: black;
     font-size: 15px;
   }
+
+
+#buttons2 {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+#buttons button {
+    width: 20px;
+    height: 20px;
+}
+
+.num {
+    float: right;
+}
   
