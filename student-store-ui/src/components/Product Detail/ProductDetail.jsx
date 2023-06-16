@@ -3,25 +3,56 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from "../Navbar/Navbar"
 import Sidebar from "../Sidebar/Sidebar"
 import Home from "../Home/Home"
-import "./App.css"
 import ProductView from "../ProductView/ProductView"
 import Footer from "../Footer/Footer"
-import ProductDetail from "../Product Detail/ProductDetail"
+import { Link } from "react-router-dom"
+import { products } from '../../../../student-store-express-api/data/db.json'
+import { categories } from '../../constants'
+import CategoryView from "../CategoryView/CategoryView"
+import { useLocation } from "react-router-dom"
 
+export default function ProductDetail(props) {
+    const location = useLocation();
+    const info = location.state?.info;
 
-
-export default function App() {
-  return (
-    <div className="app">
+    return (
+        <div className="app">
         <main>
-        
           {/* YOUR CODE HERE! */}
           <Sidebar />
           <div id="all">
           <Navbar />
           <div id="everything">
           <Home/>
-          <ProductView />
+          <form className="search">
+                <input 
+                type="text" 
+                placeholder="Search" 
+                size={90} 
+                id="bar" />
+                <button type='submit' id="search-button"><img src="glass2.png"/></button>
+            </form>
+           <br/>
+            <br/>
+            <div className="catView">
+                {categories.map((c, idx) => {
+                return (
+                    <CategoryView 
+                    key={idx}
+                    label={c.name}/>
+                )
+                })}
+            </div>
+            <br/>
+            <br/>
+            <div id="info2">
+                <h1>Product #{info.id}</h1>
+                <img id="newImg" src={info.img}/>
+                <p>{info.name}</p>
+                <p>{info.desc}</p>
+                <p>${info.price}</p>
+                <Link to="/"><button>Back</button></Link>
+            </div>
           <h4 id="about">About</h4>
           <br/>
             <div className="aboutus">
@@ -58,5 +89,5 @@ export default function App() {
           
         </main>
     </div>
-  )
+    )
 }

@@ -43,6 +43,11 @@ export default function Footer() {
                 <p>Instagram</p>
                 <p>Youtube</p>
             </div>
+            <div id="subFoot">
+                <p><strong>About Us</strong></p>
+                <p>App Store</p>
+                <p>Google Play</p>
+            </div>
             </div>
             <hr/>
             <br/>
