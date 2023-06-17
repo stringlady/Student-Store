@@ -1,0 +1,57 @@
+.home {
+    width: 1200px;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #intro {
+    background-color: cadetblue;
+    width: 1200px;
+    height: 100%;
+    color: white;
+    justify-content: space-around;
+    padding-left: 30px;
+    display: flex;
+  }
+  
+  h1 {
+    font-size: 50px;
+  }
+  
+  p {
+    font-size: 20px;
+  }
+  
+  .words {
+    padding-top: 55px;
+  }
+  
+  .store img {
+    padding-top: 20px;
+    width: 500px;
+    height: 400px;
+    padding-left: 50px;
+    padding-right: 10px;
+  }
+  
+  h4 {
+    font-size: 25px;
+  }
+  
+  .catView {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  #ham {
+    padding-top: 5px;
+    width: 30px;
+    height: 40px;
+  }
+  
+  .catView p {
+    color: black;
+    font-size: 15px;
+  }
