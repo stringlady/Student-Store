@@ -1,12 +1,10 @@
 import './ProductView.css'
-import { products } from '../../../../student-store-express-api/data/db.json'
 import { categories } from '../../constants'
 import CategoryView from "../CategoryView/CategoryView";
 import { useState } from "react";
-import { Routes, Route } from 'react-router-dom'
 import { Link } from 'react-router-dom';
-import ProductDetail from '../Product Detail/ProductDetail';
-import App from '../App/App';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 export default function ProductView() {
     return (
@@ -18,10 +16,37 @@ export default function ProductView() {
 }
 
 export function ProductGrid(props) {
+    const [products, setProducts] = useState([]);
+    const [err, setError] = useState('');
+    const [fetching, setIsFetching] = useState(false);
     const [catName, setCatName] = useState("All Categories");
-    const [searched, setSearched] = useState([...products]);
+    const [searched, setSearched] = useState(products);
     const bar = document.getElementById('bar');
-    const view = document.getElementById('p-view');
+
+    useEffect(() => {
+        const authUser = async () => {
+          setIsFetching(true);
+    
+          try {
+            const res = await axios.get("https://codepath-store-api.herokuapp.com/store");
+            if (res?.data?.products) {
+              //console.log(res?.data?.products);
+              setProducts(res.data.products);
+              setSearched(res.data.products);
+            } else {
+              setError("Error fetching products.");
+            }
+          } catch (err) {
+            console.log(err);
+            const message = err?.response?.data?.error?.message;
+            setError(message ?? String(err));
+          } finally {
+            setIsFetching(false);
+          }
+        };
+    
+        authUser();
+      }, []);
 
     const changeCatName = (element) => {
         setCatName(element);
@@ -38,7 +63,6 @@ export function ProductGrid(props) {
     }
 
     const getSearchedList = () => {
-        console.log(searched);
         if(bar.value.length > 0){
             let searchArr = [];
             let newVal = bar.value.toLowerCase();
@@ -47,15 +71,18 @@ export function ProductGrid(props) {
                     searchArr.push(el);
                 }
             })
-            setSearched(searchArr)
+            setSearched(searchArr);
         } else {
-            setSearched(products)
+            setSearched(products);
         }
+        
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
     }
+
+    console.log(searched);
 
     return(
         <div>
