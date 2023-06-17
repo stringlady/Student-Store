@@ -67,7 +67,7 @@ export function ProductGrid(props) {
             let searchArr = [];
             let newVal = bar.value.toLowerCase();
             products.forEach((el) => {
-                if((el.name).toLowerCase().includes(newVal)) {
+                if((el.name + el.category + el.description).toLowerCase().includes(newVal)) {
                     searchArr.push(el);
                 }
             })

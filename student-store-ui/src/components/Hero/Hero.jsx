@@ -9,7 +9,6 @@ export default function Hero() {
           <div className="store">
             <img src="store.gif" />
           </div>
-  
         </div>
     )
   }
