@@ -5,11 +5,12 @@ import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { purchases } from '../../constants';
+import ShoppingCart from '../ShoppingCart/ShoppingCart';
 
 export default function ProductView() {
     return (
-        <div>
-            
+        <div> 
           <ProductGrid/>
         </div>
     )
@@ -28,7 +29,7 @@ export function ProductGrid(props) {
           setIsFetching(true);
     
           try {
-            const res = await axios.get("https://codepath-store-api.herokuapp.com/store");
+            const res = await axios.get("http://localhost:3001/store");
             if (res?.data?.products) {
               //console.log(res?.data?.products);
               setProducts(res.data.products);
@@ -82,7 +83,7 @@ export function ProductGrid(props) {
         event.preventDefault();
     }
 
-    console.log(searched);
+    //console.log(searched);
 
     return(
         <div>
@@ -142,41 +143,61 @@ export function ProductCard(props) {
     desc: props.desc
    }
 
+   const cart = {
+    name: props.name,
+    quantity: 1,
+    unit: props.price,
+    cost: props.price
+   }
+
    const addNum = () => {
     setNum(num + 1);
+    cart.quantity = num + 1;
+    cart.cost = (cart.quantity * cart.cost).toFixed(2);
+    purchases.forEach(element => {
+        if(element.name === props.name) {
+            element.quantity = cart.quantity;
+            element.cost = cart.cost;
+        }
+    })
    }
 
    const subNum = () => {
     if (num > 0) {
         setNum(num - 1);
+        cart.quantity = num - 1;
+        cart.cost = (cart.quantity * cart.cost).toFixed(2);
+        purchases.forEach(element => {
+            if(element.name === props.name) {
+                element.quantity = cart.quantity;
+                element.cost = cart.cost;
+            }
+        })
     }
    }
     return (
         <div>
-            
-        <div className={cardClassName}>
-            <img id="img" src={props.image}/>
-            <div id="desc">
-            <div>
-                <Link
-                className='forColor' 
-                to='/product'
-                state={{info:info}}>
-                    <p><strong>{props.name}</strong></p>
-                </Link>
-                <p>${props.price}</p>
+            <div className={cardClassName}>
+                <img id="img" src={props.image}/>
+                <div id="desc">
+                    <div>
+                        <Link
+                            className='forColor' 
+                            to='/product'
+                            state={{info:info}}>
+                            <p><strong>{props.name}</strong></p>
+                        </Link>
+                        <p>${props.price.toFixed(2)}</p>
+                    </div>
+                    <div id="buttons2">
+                        <button onClick={addNum}>+</button>
+                        <button onClick={subNum}>-</button>
+                        <p>{num}</p>
+                    </div>
+                </div>
             </div>
-            <div id="buttons2">
-                <button onClick={addNum}>+</button>
-                <button onClick={subNum}>-</button>
-            </div>
-            </div>
-            <div className='num'>
-                <p>{num}</p>
-            </div>
-        </div>
-        <br/>
-        <br/>
+            <br/>
+            <br/>
         </div>
     )
 }

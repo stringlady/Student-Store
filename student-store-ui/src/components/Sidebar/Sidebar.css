@@ -4,8 +4,42 @@
     height: 900px;
     position: fixed;
     background-color: cadetblue;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
 }
 
 .sidebar img {
-    width: 60px;
+    width: 50px;
 }
+
+.hide {
+    display: none;
+}
+
+#options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#cart {
+    background-color: aliceblue;
+}
+
+#btn {
+    width: 90px;
+    height: 50px;
+    color: white;
+    background-color: cadetblue;
+
+}
+
+#btn2 {
+    padding-left: 20px;
+}
+
+
+

@@ -50,7 +50,7 @@ export default function ProductDetail(props) {
                 <img id="newImg" src={info.img}/>
                 <p>{info.name}</p>
                 <p>{info.desc}</p>
-                <p>${info.price}</p>
+                <p>${info.price.toFixed(2)}</p>
                 <Link to="/"><button>Back</button></Link>
             </div>
           <h4 id="about">About</h4>
