@@ -8,10 +8,21 @@
     display: flex;
     flex-direction: column;
     overflow-x: scroll;
+    overflow-y: scroll;
 }
+
+
 
 .sidebar img {
     width: 50px;
+}
+
+.forColor {
+    background-color: aliceblue;
+}
+
+.forWidth {
+    width: 40%;
 }
 
 .hide {
@@ -27,6 +38,7 @@
 
 #cart {
     background-color: aliceblue;
+    padding-bottom: 100px;
 }
 
 #btn {
@@ -37,9 +49,48 @@
 
 }
 
-#btn2 {
+.btn2 {
+    padding-top: 30px;
+}
+
+#green {
+    color: lightcoral;
+}
+
+#form {
+    padding-top: 30px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+}
+
+#rec {
+    padding-bottom: 100px;
     padding-left: 20px;
 }
 
+ul {
+    overflow-x: scroll;
+}
 
+#error {
+    color: red;
+}
 
+#btn2 {
+    padding-left: 5px;
+}
+
+#heading {
+    padding-top: 30px;
+    text-align: center;
+}
+
+#close {
+    text-align: center;
+    padding-top: 20px;
+    float: right;
+}
+
+#empty {
+    color: red;
+}

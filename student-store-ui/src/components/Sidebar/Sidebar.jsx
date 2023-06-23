@@ -11,6 +11,15 @@ export default function Sidebar() {
   const closing = document.getElementById("close");
   const cart = document.getElementById('cart');
   const [using, setUsing] = useState(purchases);
+  const [updating, setUpdating] = useState(purchases);
+  const receipt = document.getElementById("rec");
+  const logo = document.getElementById('logo');
+  const name = document.getElementById('name');
+  const email = document.getElementById('email');
+  const checkbox = document.getElementById('check');
+  const error = document.getElementById("error");
+  const empty = document.getElementById('empty');
+  const sidebar = document.getElementById('bar');
 
   const helper = (purchase) => {
     return purchase.quantity != 0;
@@ -18,20 +27,29 @@ export default function Sidebar() {
 
   const open = () => {
     bar.style.width = '40%';
+    bar.classList.add('forColor');
     opening.classList.add('hide');
     closing.classList.remove('hide');
     cart.classList.remove('hide');
+    logo.classList.add('hide');
     const setForUsing = purchases.filter(helper)
     setUsing(setForUsing);
+    empty.classList.add('hide');
+    error.classList.add('hide');
   }
   
   const close = () => {
     bar.style.width = '4%';
+    bar.classList.remove('forColor');
     closing.classList.add('hide');
     opening.classList.remove('hide');
     cart.classList.add('hide');
+    receipt.classList.add('hide');
+    logo.classList.remove('hide');
+   
   }
 
+  //using
   const subtotal = () => {
     var sub = 0;
     using.map((u, idx) => {
@@ -40,6 +58,7 @@ export default function Sidebar() {
     return sub.toFixed(2);
   }
 
+  //using
   const taxes = () => {
     var taxes = 0;
     using.map((u, idx) => {
@@ -48,12 +67,57 @@ export default function Sidebar() {
     return taxes.toFixed(2);
   }
 
+   //using
+   const subtotalU = () => {
+    var sub = 0;
+    updating.map((u, idx) => {
+      sub += parseFloat(u.cost);
+    })
+    return sub.toFixed(2);
+  }
+
+  //using
+  const taxesU = () => {
+    var taxes = 0;
+    updating.map((u, idx) => {
+      taxes += parseFloat(u.cost * 0.088);
+    })
+    return taxes.toFixed(2);
+  }
+
+  const handleClick = () => {
+    if(name.value.length > 0 && email.value.length > 0 && checkbox.checked && using.length != 0) {
+      receipt.classList.remove("hide");
+      setUsing([]);
+      const setForUpdating = purchases.filter(helper)
+      setUpdating(setForUpdating);
+      name.value = '';
+      email.value = '';
+      if(error.classList.contains('hide') === false || empty.classList.contains('hide') === false) {
+        error.classList.add('hide');
+      }
+    } else if (using.length === 0) {
+      empty.classList.remove('hide');
+    }
+     else {
+      error.classList.remove('hide');
+    }
+  }
+
+  const exitClick = () => {
+    receipt.classList.add('hide');
+    setUsing([]);
+  }
+
   return (
-    <section className="sidebar">
-      <Link to="/"><Logo/></Link>
-      <img id="open" onClick={open} src="arrow.png" />
-      <img id="close" className="hide" onClick={close} src="rarrow.png" />
+    <div className="sidebar">
+    <section>
+      <Link id="logo" to="/"><Logo/></Link>
+      <img id="open" onClick={open} src="rarrow.png" />
+      <img id="close" className="hide" onClick={close} src="arrow.png" />
       <div className="hide" id="cart">
+      <h4 id="heading">Shopping Cart</h4>
+      <hr/>
       <div id="options">
           <p>Name</p>
           <p>Quantity</p>
@@ -93,12 +157,48 @@ export default function Sidebar() {
         </div>
         <hr/>
         </div>
-        <div id="btn2">
-        <button id="btn">Checkout</button>
+        <form id="form">
+            <label>Name</label>
+            <br/>
+            <input id="name" type="text" placeholder="Student Name" size={80}/>
+            <br/>
+            <label>Email</label>
+            <br/>
+            <input id="email" type="text" placeholder="student@codepath.org" size={80}/>
+            <br/>
+            <input id="check" type="checkbox"/><label>I agree to the <span id="green">terms and conditions</span></label>
+            <br/>
+          </form>
+          <div id="btn2">
+          <div id="error" className="hide">
+          <label >You must fill in everything</label>
+          <br/>
+          <br/>
+          </div>
+          <div id="empty" className="hide">
+          <label >Your cart is empty</label>
+          <br/>
+          <br/>
+          </div>
+          <button id="btn" onClick={handleClick}>Checkout</button>
+          </div>
+        <div id="rec" className="hide">
+          <h4>Receipt</h4>
+          <form>
+          <ul>
+            {updating.map((u, idx) => {
+              return (
+                <li>{u.quantity} total {u.name} purchased at a cost of ${u.unit.toFixed(2)} for a total cost of ${u.cost}</li>
+              )
+            })}
+            <li>Before taxes the subtotal was ${subtotalU()}</li>
+            <li>After taxes and fees were applied, the total comes out to ${(parseFloat(subtotalU()) + parseFloat(taxesU())).toFixed(2)}</li>
+          </ul>
+          <button id="btn" className="exit" onClick={exitClick}>Exit</button>
+          </form>
         </div>
-        
       </div>
-      
     </section>
+    </div>
   )
 }
