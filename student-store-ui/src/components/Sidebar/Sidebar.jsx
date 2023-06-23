@@ -4,6 +4,7 @@ import Logo from "../Logo/Logo"
 import { Link } from "react-router-dom"
 import { purchases } from "../../constants"
 import { useState } from "react"
+import { wishlist } from "../../constants"
 
 export default function Sidebar() {
   const bar = document.querySelector(".sidebar");
@@ -19,10 +20,21 @@ export default function Sidebar() {
   const checkbox = document.getElementById('check');
   const error = document.getElementById("error");
   const empty = document.getElementById('empty');
-  const sidebar = document.getElementById('bar');
+  const forRemove = document.getElementById('forRemove');
+  const [wishing, setWishing] = useState(wishlist);
 
   const helper = (purchase) => {
     return purchase.quantity != 0;
+  }
+
+  const handleRemove = () => {
+    if(forRemove.value.length != 0) {
+      wishing.map((w,idx) => {
+        if(w.name.toLowerCase().includes(forRemove.value.toLowerCase()) === true) {
+          setWishing(wishing.splice(idx, 1));
+        }
+      })
+    }
   }
 
   const open = () => {
@@ -104,7 +116,8 @@ export default function Sidebar() {
     }
   }
 
-  const exitClick = () => {
+  const exitClick = (event) => {
+    event.preventDefault();
     receipt.classList.add('hide');
     setUsing([]);
   }
@@ -116,6 +129,29 @@ export default function Sidebar() {
       <img id="open" onClick={open} src="rarrow.png" />
       <img id="close" className="hide" onClick={close} src="arrow.png" />
       <div className="hide" id="cart">
+      <h4 id="heading">Wish List</h4>
+      <hr/>
+      <div id="options">
+        <p>Name</p>
+        <p>Price</p>
+      </div>
+      <hr/>
+      {wishlist.map((w, idx) => {
+        return (
+          <div>
+          <div id="options">
+            <p>{w.name}</p>
+            <p>{w.price}</p>
+          </div>
+          <hr/>
+          </div>
+        )
+      })}
+      <br/>
+      <div id="options">
+        <input id="forRemove" type="text" placeholder="Name of Item to Remove" size={50}/>
+        <button id="btn" onClick={handleRemove}>Remove</button>
+      </div>
       <h4 id="heading">Shopping Cart</h4>
       <hr/>
       <div id="options">

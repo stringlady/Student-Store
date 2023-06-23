@@ -10,10 +10,23 @@ import { products } from '../../../../student-store-express-api/data/db.json'
 import { categories } from '../../constants'
 import CategoryView from "../CategoryView/CategoryView"
 import { useLocation } from "react-router-dom"
+import { wishlist } from "../../constants"
 
 export default function ProductDetail(props) {
     const location = useLocation();
     const info = location.state?.info;
+
+    const forWish = {
+      name: info.name,
+      price: '$' + info.price.toFixed(2)
+    }
+
+    const handleClick = () => {
+      if(wishlist.includes(forWish) === false) {
+        wishlist.push(forWish);
+        console.log(wishlist);
+      }
+    }
 
     return (
         <div className="app">
@@ -51,6 +64,9 @@ export default function ProductDetail(props) {
                 <p>{info.name}</p>
                 <p>{info.desc}</p>
                 <p>${info.price.toFixed(2)}</p>
+                <button onClick={handleClick}>Add to Wish List</button>
+                <br/>
+                <br/>
                 <Link to="/"><button>Back</button></Link>
             </div>
           <h4 id="about">About</h4>

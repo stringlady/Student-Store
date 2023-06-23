@@ -105,3 +105,5 @@ export var purchases = [
       cost: 999.99
     }
   ];
+
+  export var wishlist = [];
