@@ -106,4 +106,4 @@ export var purchases = [
     }
   ];
 
-  export var wishlist = [];
+export var wishlist = [];

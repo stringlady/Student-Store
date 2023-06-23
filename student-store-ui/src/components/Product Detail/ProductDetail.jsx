@@ -1,12 +1,9 @@
 import * as React from "react"
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from "../Navbar/Navbar"
 import Sidebar from "../Sidebar/Sidebar"
 import Home from "../Home/Home"
-import ProductView from "../ProductView/ProductView"
 import Footer from "../Footer/Footer"
 import { Link } from "react-router-dom"
-import { products } from '../../../../student-store-express-api/data/db.json'
 import { categories } from '../../constants'
 import CategoryView from "../CategoryView/CategoryView"
 import { useLocation } from "react-router-dom"
